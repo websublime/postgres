@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  database:
+    image: websublime/postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - ${PWD}/entries:/docker-entrypoint-initdb.d/
+      - ${DATA_PATH}:/var/lib/postgresql/data
