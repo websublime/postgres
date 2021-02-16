@@ -9,5 +9,5 @@ services:
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     volumes:
-      - ${PWD}/entries:/docker-entrypoint-initdb.d/
+      - ${PWD}/mnt:/docker-entrypoint-initdb.d/
       - ${DATA_PATH}:/var/lib/postgresql/data

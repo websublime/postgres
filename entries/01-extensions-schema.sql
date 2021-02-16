@@ -1,25 +1,3 @@
-### BUILD
-
-````
-docker build --tag websublime/postgres --tag websublime/postgres:v1.1 .
-````
-### PUBLISH
-
-````
-docker image push --all-tags websublime/postgres
-````
-
-### RUN
-
-```
-docker-compose up -d --build
-```
-
-### Extensions
-
-Share extensions on all databases
-
-```sql
 create schema extensions;
 
 -- make sure everybody can use everything in the extensions schema
@@ -45,4 +23,3 @@ create extension pgjwt schema extensions;
 create extension http schema extensions;
 
 alter user postgres set search_path = "$user",extensions,public;
-```
