@@ -166,5 +166,3 @@ ENV LC_ALL=en_US.UTF-8
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 ADD ./mnt /docker-entrypoint-initdb.d/
-
-COPY ./entries/00-initial-schema.sql /docker-entrypoint-initdb.d/01-extensions-schema.sql
