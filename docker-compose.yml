@@ -6,8 +6,9 @@ services:
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     volumes:
-      - ${PWD}/mnt:/docker-entrypoint-initdb.d/
+      # - ${PWD}/mnt:/docker-entrypoint-initdb.d/
       - ${DATA_PATH}:/var/lib/postgresql/data

@@ -2,7 +2,10 @@ FROM postgres:12
 
 # install pgcron
 RUN apt-get update \
-      && apt-get install postgresql-12-cron -y
+      && apt-get install postgresql-12-cron postgresql-12-pldebugger -y
+
+ENV JWT_SECRET = "3EK6FD+o0+c7tzBNVfjpMkNDi2yARAAKzQlk8O2IKoxQu4nF7EdAh8s3TwpHwrdWT6R"
+ENV COURIER_URL="http://localhost:8883"
 
 # install postgis
 ENV POSTGIS_MAJOR 3
@@ -165,4 +168,10 @@ ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
 RUN mkdir -p /docker-entrypoint-initdb.d
-ADD ./mnt /docker-entrypoint-initdb.d/
+
+COPY ./scripts/00-init-permissions.sh /docker-entrypoint-initdb.d
+COPY ./scripts/01-extensions-schema.sql /docker-entrypoint-initdb.d
+COPY ./scripts/02-notify-function.sql /docker-entrypoint-initdb.d
+COPY ./scripts/03-roles-schemas.sql /docker-entrypoint-initdb.d
+
+#ADD ./mnt /docker-entrypoint-initdb.d/

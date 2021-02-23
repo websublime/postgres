@@ -9,6 +9,7 @@ alter default privileges in schema extensions grant execute on functions to publ
 alter default privileges in schema extensions grant usage on types to public;
 
 create extension pg_cron schema extensions;
+create extension pldbgapi schema extensions;
 
 create extension postgis schema extensions;
 create extension postgis_raster schema extensions;
