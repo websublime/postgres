@@ -16,6 +16,7 @@ echo "log_rotation_size=0" >> $PGDATA/postgresql.conf
 echo "cron.database_name='postgres'" >> $PGDATA/postgresql.conf
 echo "jwt.secret='$JWT_SECRET'" >> $PGDATA/postgresql.conf
 echo "jwt.courier_url='$COURIER_URL'" >> $PGDATA/postgresql.conf
+echo "http.timeout_msec=60000" >> $PGDATA/postgresql.conf
 echo "pljava.libjvm_location = '/usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so'" >> $PGDATA/postgresql.conf
 
 pg_ctl restart
