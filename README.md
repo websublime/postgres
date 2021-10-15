@@ -13,6 +13,8 @@ List of plugins:
  - plpgsql_check
  - pg-safeupdate
  - pljava
+ - postgres-decoderbufs
+ - wal2json
 
 All extensions are activated on extensions namespace. Scripts in this repo are copied to image itself, but if you mount volume to `docker-entrypoint-initdb.d` they will be overrided. Copy this if you intend to add your scripts. Take a look on it to know that roles, extensions and courier functions are added.
 
